@@ -1,0 +1,54 @@
+.ps{color:var(--accent);font-weight:bold}
+.page-prompt{opacity:.85;margin:10px 0 4px;white-space:pre-wrap;word-break:break-word}
+.empty{opacity:.75;margin:0 0 10px}
+.more{margin:14px 0 0}
+.list-desc{opacity:.8}
+.contact{border:1px solid color-mix(in srgb,var(--accent) 60%,transparent);padding:14px 18px;margin:0}
+.contact .row{display:flex;gap:1.5em;margin:2px 0}
+.contact .k{min-width:5.5em;opacity:.9}
+.contact a{overflow-wrap:anywhere}
+.page .post-content h2{color:var(--accent);margin-top:2em;font-size:1.15rem}
+.page .post-content h2::before{content:"## "}
+.page .post-content h3{margin:1.4em 0 .2em;font-size:1rem}
+.page .post-content h3 + p{margin:0 0 .3em}
+.page .when{opacity:.65;font-size:.9rem;margin-left:.5em;white-space:nowrap}
+.page .post-content h3 + p + ul{margin-top:.3em}
+.page .post-content ul{margin-top:.4em}
+@media (max-width:760px){
+  .page .when{display:block;margin-left:0}
+  .contact{padding:12px}
+  .contact .row{flex-direction:column;gap:0;margin:0 0 8px}
+  .contact .k{opacity:.6;font-size:.85rem}
+  .container{padding:20px 16px}
+}
+
+/* ---- Header: ASCII banner as the logo ---- */
+@font-face{font-family:"georgesec-banner";src:url("/fonts/banner-dejavu-mono.woff2") format("woff2");font-display:block}
+.site-header{container-type:inline-size;display:flex;flex-direction:column;gap:14px;margin-bottom:6px}
+.site-header__logo{display:flex;min-width:0}
+.banner-link{display:block;max-width:100%;text-decoration:none;background:none !important}
+.banner-link:focus-visible{outline:1px dashed var(--accent-2);outline-offset:4px}
+.banner{width:fit-content;max-width:100%;margin:0;padding:0;border:0;line-height:1;white-space:pre;overflow:hidden;
+  --bfs:15px;font-size:min(var(--bfs),calc((100cqw - 2px) / var(--cols) / .64)) !important;font-weight:normal;
+  font-family:"georgesec-banner","DejaVu Sans Mono",Menlo,Consolas,monospace !important;font-variant-ligatures:none;
+  background-color:transparent !important;background-image:linear-gradient(90deg,var(--banner-a),var(--banner-b)) !important;
+  -webkit-background-clip:text !important;background-clip:text !important;color:transparent !important;-webkit-text-fill-color:transparent;
+  filter:drop-shadow(0 0 8px color-mix(in srgb,var(--banner-a) 30%,transparent))}
+.site-nav ul{display:flex;flex-wrap:wrap;gap:6px 22px;list-style:none;margin:0;padding:0}
+.site-nav li{margin:0;padding:0}
+.site-nav a{text-decoration:none;white-space:nowrap}
+.site-nav a::before{content:"./";color:var(--accent);opacity:.9}
+.site-nav a:hover,.site-nav a[aria-current="page"]{text-decoration:underline;text-underline-offset:4px}
+.site-header.is-home .banner{--bfs:15px}
+/* Inner pages: compact banner with the nav beside it */
+.site-header.is-inner{flex-direction:row;align-items:center;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;
+  padding-bottom:14px;border-bottom:1px dashed color-mix(in srgb,var(--accent) 45%,transparent);margin-bottom:6px}
+.site-header.is-inner .banner{--bfs:7px;filter:none}
+.site-header.is-inner .banner-link:hover .banner{filter:drop-shadow(0 0 6px color-mix(in srgb,var(--banner-a) 45%,transparent))}
+@media (max-width:684px){
+  .site-header{gap:12px}
+  .site-header.is-inner{flex-direction:column;align-items:flex-start;gap:8px;padding-bottom:8px}
+  .site-header.is-inner .banner{--bfs:6px}
+  .site-nav ul{gap:4px 14px}
+  .site-nav a{font-size:.85rem;display:inline-block;padding:6px 0}
+}

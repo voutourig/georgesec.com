@@ -1,0 +1,21 @@
+/* Colour scheme. Primary accent (--accent): banner, prompts, borders, headings.
+   Secondary accent (--accent-2): links, highlights, banner info block.
+   --banner-a / --banner-b: banner gradient ends (same colour = solid banner).
+   Default: combo_gradient (red to purple banner, cyan links).
+   Other combinations tried are in _build/schemes.json (combo_*). */
+:root {
+  --background: #0b0a10;      /* page */
+  --surface: #07070b;         /* terminal window body */
+  --surface-bar: #131119;     /* terminal title bar */
+  --foreground: #d6d6de;      /* body text, light grey */
+  --accent: #ff3346;          /* primary: banner, prompts, borders, headings */
+  --accent-2: #22d3ee;        /* secondary: links, highlights, info block */
+  --accent-text: var(--accent-2); /* links */
+  --banner-a: #ff3346;          /* banner gradient start, red */
+  --banner-b: #b366ff;          /* banner gradient end, purple */
+  --font-size: 1rem;
+  --line-height: 1.54em;
+  --radius: 0;
+}
+a{color:var(--accent-text);text-decoration-color:color-mix(in srgb,var(--accent-text) 55%,transparent)}
+::selection{background:var(--accent);color:var(--background)}

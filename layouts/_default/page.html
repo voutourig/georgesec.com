@@ -1,0 +1,7 @@
+{{ define "main" }}
+<article class="post page">
+  <p class="page-prompt"><span class="ps">georgesec &gt;</span> {{ .Params.prompt | default (printf "cat %s.txt" (lower .Title)) }}</p>
+  <h1 class="post-title">{{ .Title }}</h1>
+  <div class="post-content">{{ .Content }}</div>
+</article>
+{{ end }}

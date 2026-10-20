@@ -1,0 +1,56 @@
+baseURL = "https://georgesec.com/"
+locale = "en-GB"
+defaultContentLanguage = "en"
+theme = "terminal"
+title = "George Voutouris"
+enableRobotsTXT = true
+pagination.pagerSize = 10
+copyright = "&copy; George Voutouris"
+
+[taxonomies]
+  tag = "tags"
+
+[sitemap]
+  changeFreq = "monthly"
+  filename = "sitemap.xml"
+
+[permalinks]
+  articles = "/articles/:slug/"
+  projects = "/projects/:slug/"
+
+[markup.goldmark.renderer]
+  unsafe = true
+[markup.highlight]
+  noClasses = false
+
+[params]
+  contentTypeName = "articles"
+  showMenuItems = 5
+  centerTheme = true
+  fullWidthTheme = false
+  subtitle = "Detection Engineer & Penetration Tester"
+  description = "George Voutouris, Digital Security Engineer at the Cyprus National CSIRT. Detection engineering, incident response, threat hunting and penetration testing. Articles, projects and writeups."
+  keywords = ["George Voutouris", "georgesec", "detection engineering", "penetration testing", "SOC", "incident response", "threat hunting"]
+  author = "George Voutouris"
+  readMore = "Read more"
+  [params.logo]
+    logoText = "georgesec"
+    logoHomeLink = "/"
+
+[menu]
+  [[menu.main]]
+    name = "About"
+    url = "/about/"
+    weight = 1
+  [[menu.main]]
+    name = "Projects"
+    url = "/projects/"
+    weight = 2
+  [[menu.main]]
+    name = "Articles"
+    url = "/articles/"
+    weight = 3
+  [[menu.main]]
+    name = "Contact"
+    url = "/#contact"
+    weight = 4

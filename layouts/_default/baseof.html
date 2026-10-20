@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  {{ block "title" . }}<title>{{ if .IsHome }}{{ site.Title }} :: {{ site.Params.subtitle }}{{ else }}{{ .Title }} :: {{ site.Title }}{{ end }}</title>{{ end }}
+  {{ partial "head.html" . }}
+</head>
+<body>
+<div class="container center">
+  {{ partial "header.html" . }}
+  <div class="content">
+    {{ block "main" . }}{{ end }}
+  </div>
+  {{ block "footer" . }}{{ partial "footer.html" . }}{{ end }}
+</div>
+</body>
+</html>

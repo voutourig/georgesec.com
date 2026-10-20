@@ -1,0 +1,83 @@
+# Build the Hugo site and deploy it to GitHub Pages.
+# Based on the official GitHub Pages starter workflow for Hugo.
+# In the repo: Settings > Pages > Build and deployment > Source = "GitHub Actions".
+name: Deploy Hugo site to Pages
+
+on:
+  push:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      HUGO_VERSION: 0.168.0
+      HUGO_ENVIRONMENT: production
+      TZ: UTC
+    steps:
+      - name: Install Hugo CLI
+        run: |
+          wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_linux-amd64.deb \
+          && sudo dpkg -i ${{ runner.temp }}/hugo.deb
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+      - name: Fetch theme
+        # panr/hugo-theme-terminal, pinned to a known commit (MIT licence).
+        env:
+          THEME_COMMIT: 8ef994c0e0303861b1204d1248541af06c9bfea6
+        run: |
+          git clone --quiet https://github.com/panr/hugo-theme-terminal.git themes/terminal
+          git -C themes/terminal checkout --quiet "$THEME_COMMIT"
+      - name: Restore binary assets
+        # The site's images and fonts are stored base64-encoded under .github/binary-assets/
+        # (mirroring their real paths) and decoded here before the build.
+        run: |
+          if [ -d .github/binary-assets ]; then
+            find .github/binary-assets -type f -name '*.b64' | while read -r f; do
+              out="${f#.github/binary-assets/}"; out="${out%.b64}"
+              mkdir -p "$(dirname "$out")"
+              base64 -d "$f" > "$out"
+              echo "restored $out"
+            done
+          fi
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
+      - name: Build with Hugo
+        run: |
+          hugo \
+            --gc \
+            --minify \
+            --baseURL "${{ steps.pages.outputs.base_url }}/"
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./public
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

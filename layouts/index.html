@@ -1,0 +1,105 @@
+{{ define "main" }}
+<section class="whoami">
+  <div class="term">
+    <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">georgesec console</span></div>
+    <div class="term-body" id="term-body">
+      {{ partial "info.html" . }}
+      <p class="ln" data-type="cmd"><span class="ps">georgesec &gt;</span> <span class="tx">whoami</span></p>
+      <p class="ln out" data-type="out"><span class="tx"><strong>George Voutouris</strong> :: Detection Engineer &amp; Penetration Tester</span></p>
+      <p class="ln" data-type="cmd"><span class="ps">georgesec &gt;</span> <span class="tx">cat about.txt</span></p>
+      <p class="ln out" data-type="out"><span class="tx">Digital Security Engineer at the Cyprus National CSIRT / National SOC. I build and tune detections, handle incident response, and run penetration tests as part of the internal Red Team.</span></p>
+      <p class="ln out" data-type="out"><span class="tx">Previously a SOC Analyst at Spectrum XOps, a multi-client MSSP.</span></p>
+      <p class="ln" data-type="cmd"><span class="ps">georgesec &gt;</span> <span class="tx">cat highlights.txt</span></p>
+      <p class="ln out" data-type="out"><span class="tx"><span class="plus">[+]</span> ECSC 2026 Cyprus national team</span></p>
+      <p class="ln out" data-type="out"><span class="tx"><span class="plus">[+]</span> PJPT and BTL1 certified</span></p>
+      <p class="ln out" data-type="out"><span class="tx"><span class="plus">[+]</span> MSc Cybersecurity at Georgia Tech</span></p>
+      <p class="ln" data-type="cmd"><span class="ps">georgesec &gt;</span> <span class="tx">ls</span></p>
+      <p class="ln out nav" data-type="out"><span class="tx"><a href="/projects/">projects/</a>   <a href="/articles/">articles/</a>   <a href="/about/">about.txt</a>   <a href="#contact">contact</a></span></p>
+      <p class="ln last"><span class="ps">georgesec &gt;</span> <span class="cursor">&#9608;</span></p>
+    </div>
+  </div>
+
+  {{ $articles := where site.RegularPages "Section" "articles" }}
+  <h2 class="sec">## latest articles</h2>
+  {{ with first 3 $articles }}
+  <div class="cards">
+    {{ range . }}
+    <a class="card" href="{{ .RelPermalink }}"><span class="card-date">{{ .Date.Format "2006-01-02" }}</span><span class="card-title">{{ .Title }}</span><span class="card-desc">{{ .Description }}</span></a>
+    {{ end }}
+  </div>
+  {{ if gt (len $articles) 3 }}<p class="more"><a href="/articles/">[all articles]</a></p>{{ end }}
+  {{ else }}
+  <p class="empty"><span class="ps">&gt;</span> Coming soon.</p>
+  {{ end }}
+
+  {{ $projects := where site.RegularPages "Section" "projects" }}
+  {{ $featured := where $projects "Params.featured" true }}
+  {{ if not $featured }}{{ $featured = $projects }}{{ end }}
+  <h2 class="sec">## featured projects</h2>
+  {{ with first 4 $featured }}
+  <div class="cards two">
+    {{ range . }}
+    <a class="card" href="{{ .RelPermalink }}"><span class="card-date">{{ with .Params.tags }}{{ delimit . " / " }}{{ else }}project{{ end }}</span><span class="card-title">{{ .Title }}</span><span class="card-desc">{{ .Description }}</span></a>
+    {{ end }}
+  </div>
+  {{ if gt (len $projects) 4 }}<p class="more"><a href="/projects/">[all projects]</a></p>{{ end }}
+  {{ else }}
+  <p class="empty"><span class="ps">&gt;</span> Coming soon.</p>
+  {{ end }}
+
+  <h2 class="sec" id="contact">## contact</h2>
+  {{ partial "contact.html" . }}
+</section>
+
+<style>
+.whoami .term{border:1px solid var(--accent);background:var(--surface);margin:10px 0 40px;box-shadow:0 0 24px color-mix(in srgb,var(--accent) 18%,transparent)}
+.whoami .term-bar{display:flex;align-items:center;gap:8px;padding:8px 12px;border-bottom:1px solid color-mix(in srgb,var(--accent) 40%,transparent);background:var(--surface-bar)}
+.whoami .dot{width:11px;height:11px;border-radius:50%;display:inline-block}
+.whoami .dot.r{background:#ff5f56}.whoami .dot.y{background:#ffbd2e}.whoami .dot.g{background:#27c93f}
+.whoami .term-title{margin-left:10px;opacity:.6;font-size:.85rem}
+.whoami .term-body{padding:18px 22px;min-height:1em;container-type:inline-size}
+.whoami .ln{margin:0 0 6px;white-space:pre-wrap}
+.whoami .ps{color:var(--accent);font-weight:bold}
+.whoami .out{opacity:.92;padding-left:0}
+.whoami .nav a{font-weight:bold}
+.whoami .plus{color:var(--accent);font-weight:bold}
+.whoami .info{font-variant-ligatures:none;font-feature-settings:"liga" 0,"calt" 0;font-family:"Fira Code",Monaco,Consolas,"Ubuntu Mono",monospace;margin:0 0 18px;padding:0;border:0;background:none !important;white-space:pre;font-size:.92rem !important;line-height:1.45;overflow:hidden}
+.whoami .info .il{display:block}
+.whoami .info .ip{color:var(--accent);font-weight:bold}
+.whoami .info .it{color:var(--accent-2)}
+.whoami .cursor{color:var(--accent);animation:blink 1s step-end infinite}
+@keyframes blink{50%{opacity:0}}
+.whoami .sec{color:var(--accent);font-size:1.15rem;margin:34px 0 14px}
+.whoami .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.whoami .cards.two{grid-template-columns:repeat(2,1fr)}
+.whoami .card{display:flex;flex-direction:column;gap:8px;border:1px dashed color-mix(in srgb,var(--accent) 55%,transparent);padding:14px;text-decoration:none;color:var(--foreground)}
+.whoami .card:hover{border-style:solid;background:color-mix(in srgb,var(--accent) 7%,transparent)}
+.whoami .card-date{font-size:.8rem;opacity:.6}
+.whoami .card-title{color:var(--accent-2);font-weight:bold}
+.whoami .card-desc{font-size:.88rem;opacity:.85}
+@media (max-width:760px){.whoami .cards,.whoami .cards.two{grid-template-columns:1fr}.whoami .term-body{padding:14px 14px}.whoami .term-title{font-size:.75rem}
+  .whoami .info{white-space:pre-wrap;font-size:.8rem !important}
+  .whoami .info .il{padding-left:10ch;text-indent:-10ch}
+  .whoami .info .pad{display:none}
+  .whoami .info .il .ip:last-child{margin-left:1ch}}
+</style>
+<script>
+(function(){
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var body=document.getElementById('term-body'); if(!body) return;
+  var lines=[].slice.call(body.querySelectorAll('.ln:not(.last)'));
+  var last=body.querySelector('.ln.last');
+  var saved=lines.map(function(l){var t=l.querySelector('.tx');return {el:l,tx:t,html:t.innerHTML,text:t.textContent};});
+  saved.forEach(function(s){s.el.style.display='none';s.tx.textContent='';});
+  last.style.display='none';
+  var i=0;
+  function next(){
+    if(i>=saved.length){last.style.display='';document.documentElement.setAttribute('data-typed','1');return;}
+    var s=saved[i++]; s.el.style.display='';
+    if(s.el.dataset.type==='out'){ s.tx.innerHTML=s.html; setTimeout(next,120); return; }
+    var k=0;(function type(){ if(k<=s.text.length){ s.tx.textContent=s.text.slice(0,k++); setTimeout(type,55);} else { s.tx.innerHTML=s.html; setTimeout(next,250);} })();
+  }
+  next();
+})();
+</script>
+{{ end }}

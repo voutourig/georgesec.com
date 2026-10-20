@@ -1,18 +1,27 @@
 # Content licence
 
-Copyright (c) 2026 George Voutouris. All rights reserved.
+## Written content: CC BY 4.0
 
-The following are not covered by the MIT licence in `LICENSE`:
+All written content on georgesec.com and in this repository, including articles, project write-ups and the
+About page text (everything under `content/`), is Copyright (c) 2026 George Voutouris and licensed under the
+[Creative Commons Attribution 4.0 International licence (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
 
-- All written content, including articles, project write-ups and the About page text (everything under `content/`)
-- The GEORGESEC banner and branding, including the ASCII banner, the `georgesec v2026` info block and the favicon design
-- All images, including `static/og-image.png`, the favicons and any images added with articles or projects
+You may share and adapt it for any purpose, including commercially, as long as you:
 
-You may not copy, republish, modify or reuse any of the above without prior written permission from
-George Voutouris. Linking to pages on georgesec.com and quoting short excerpts with a link back to the
-source are welcome.
+- credit **George Voutouris** as the author,
+- link to the original page on georgesec.com, and
+- say if you made changes.
 
-To ask for permission, email voutourig@proton.me.
+## Branding: all rights reserved
+
+The GEORGESEC name, the ASCII banner, the logo and favicon, the `georgesec v2026` info block and the social
+preview image (`static/og-image.png`) are Copyright (c) 2026 George Voutouris, All rights reserved. They are
+not covered by CC BY 4.0 or by the MIT licence, and may not be reused without written permission.
+To ask, email voutourig@proton.me.
+
+## Site source code: MIT
+
+The templates, styles, scripts, configuration and build workflow are MIT licensed, see `LICENSE`.
 
 ## Third-party components
 

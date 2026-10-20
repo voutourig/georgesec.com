@@ -67,12 +67,15 @@ matching `.b64` copy.
 
 ## License
 
-This repository uses two licences:
+This repository uses three licences:
 
 - **Site source code** (templates, styles, scripts, configuration and the build workflow) is MIT licensed, see `LICENSE`.
-- **Written content, branding and images** (articles, project write-ups, the About page text, the GEORGESEC banner
-  and branding, and all images) are Copyright (c) 2026 George Voutouris, All rights reserved. They may not be reused
-  without written permission, see `CONTENT-LICENSE.md`.
+- **Written content** (articles, project write-ups and the About page text) is Copyright (c) 2026 George Voutouris and
+  licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Reuse is fine as long as you credit
+  George Voutouris and link to the original.
+- **Branding** (the GEORGESEC name, banner, logo and favicon, and the social preview image) is all rights reserved.
+
+Details are in `CONTENT-LICENSE.md`.
 
 ## Credits
 

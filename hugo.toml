@@ -5,7 +5,7 @@ theme = "terminal"
 title = "George Voutouris"
 enableRobotsTXT = true
 pagination.pagerSize = 10
-copyright = "&copy; George Voutouris"
+copyright = "© 2026 George Voutouris. All rights reserved."
 
 [taxonomies]
   tag = "tags"

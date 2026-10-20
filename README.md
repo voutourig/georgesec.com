@@ -62,5 +62,20 @@ Featured projects on the home page. If nothing is featured, the newest projects 
 
 The images and fonts (`static/*.png` and `static/fonts/*.woff2`) are stored
 base64-encoded under `.github/binary-assets/`, mirroring their real paths. The deploy workflow decodes them
-into place before running Hugo. The real files are also fine to commit directly; if you do, delete the
+into place before running Hugo. The real files are also fine to commit directly. If you do, delete the
 matching `.b64` copy.
+
+## License
+
+This repository uses two licences:
+
+- **Site source code** (templates, styles, scripts, configuration and the build workflow) is MIT licensed, see `LICENSE`.
+- **Written content, branding and images** (articles, project write-ups, the About page text, the GEORGESEC banner
+  and branding, and all images) are Copyright (c) 2026 George Voutouris, All rights reserved. They may not be reused
+  without written permission, see `CONTENT-LICENSE.md`.
+
+## Credits
+
+- [Terminal](https://github.com/panr/hugo-theme-terminal) theme by panr, MIT licence. It is downloaded at build time
+  and keeps its own licence.
+- DejaVu Sans Mono subset for the banner, Bitstream Vera licence, see `static/fonts/LICENSE-DejaVu.txt`.

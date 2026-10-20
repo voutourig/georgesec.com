@@ -19,3 +19,13 @@
 }
 a{color:var(--accent-text);text-decoration-color:color-mix(in srgb,var(--accent-text) 55%,transparent)}
 ::selection{background:var(--accent);color:var(--background)}
+
+/* footer: let the copyright line wrap on narrow screens */
+.footer .copyright, .footer .copyright--user, .footer .copyright span {
+  white-space: normal;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  max-width: 100%;
+}
+.footer__inner { max-width: 100%; }

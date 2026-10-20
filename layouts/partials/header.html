@@ -1,11 +1,10 @@
-{{/* Site header: the ASCII GEORGESEC banner is the logo (large on the home page, compact elsewhere), nav menu under or beside it. */}}
+{{/* Site header: the ASCII GEORGESEC banner is the logo (large on the home page, compact elsewhere) and links home. Below it a terminal-style tagline replaces the old nav menu. */}}
 <header class="header site-header {{ if .IsHome }}is-home{{ else }}is-inner{{ end }}">
   <div class="site-header__logo">
     <a class="banner-link" href="{{ site.Params.Logo.logoHomeLink | default "/" }}" aria-label="georgesec, home">{{ partial "banner.html" . }}</a>
   </div>
-  <nav class="site-nav" aria-label="Main">
-    <ul>
-      {{ range site.Menus.main }}<li><a href="{{ .URL }}"{{ if and (not $.IsHome) (eq (strings.TrimSuffix "/" .URL) (strings.TrimSuffix "/" $.RelPermalink)) }} aria-current="page"{{ end }}>{{ .Name }}</a></li>{{ end }}
-    </ul>
-  </nav>
+  <div class="site-tagline">
+    <p class="tag-line"><span class="cm"># personal portfolio of George Voutouris</span></p>
+    {{ if not .IsHome }}<p class="tag-home"><a href="/">cd ~</a></p>{{ end }}
+  </div>
 </header>

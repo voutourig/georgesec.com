@@ -52,3 +52,18 @@
   .site-nav ul{gap:4px 14px}
   .site-nav a{font-size:.85rem;display:inline-block;padding:6px 0}
 }
+
+/* ---- Prompt: root@georgesec:~$ ---- */
+.ps .pu,.pu{color:var(--accent);font-weight:bold}
+.ps .pc,.pc{color:var(--foreground);font-weight:bold}
+.ps .pp{color:var(--accent-2);font-weight:bold}
+.ph{color:var(--accent-2);font-weight:bold}
+
+/* ---- Header tagline (replaces the old nav menu) ---- */
+.site-tagline{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 22px}
+.site-tagline p{margin:0}
+.site-tagline .cm{color:var(--foreground);opacity:.6;font-style:italic}
+.site-tagline .tag-home a{text-decoration:none;white-space:nowrap}
+.site-tagline .tag-home a::before{content:"$ ";color:var(--accent)}
+.site-tagline .tag-home a:hover{text-decoration:underline;text-underline-offset:4px}
+@media (max-width:684px){.site-tagline{font-size:.85rem}}

@@ -32,11 +32,11 @@ Before that I was a SOC Analyst at Spectrum XOps, a multi-client MSSP.
 
 - ECSC 2026, Cyprus national team
 - Cyber Europe 2026
-- CCSC Top 10
+- CCSC 2026 Top 10
 
 ## certifications
 
-- PJPT
+- PJPT (TCM Security)
 - BTL1 (Centri)
 
 ## bug bounty

@@ -36,21 +36,3 @@ copyright = "© 2026 George Voutouris. Content licensed CC BY 4.0"
   [params.logo]
     logoText = "georgesec"
     logoHomeLink = "/"
-
-[menu]
-  [[menu.main]]
-    name = "About"
-    url = "/about/"
-    weight = 1
-  [[menu.main]]
-    name = "Projects"
-    url = "/projects/"
-    weight = 2
-  [[menu.main]]
-    name = "Articles"
-    url = "/articles/"
-    weight = 3
-  [[menu.main]]
-    name = "Contact"
-    url = "/#contact"
-    weight = 4

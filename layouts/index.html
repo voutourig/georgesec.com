@@ -53,7 +53,8 @@
 .whoami .ln{margin:0 0 6px;white-space:pre-wrap}
 .whoami .ps{color:var(--accent);font-weight:bold}
 .whoami .out{opacity:.92;padding-left:0}
-.whoami .nav a{font-weight:bold}
+.whoami .nav a{font-weight:700;text-decoration:none;border-bottom:0;background-image:none;box-shadow:none}
+.whoami .nav a:hover,.whoami .nav a:focus-visible{color:var(--accent);text-decoration:none}
 .whoami .plus{color:var(--accent);font-weight:bold}
 .whoami .term-hint{margin-left:auto;opacity:.45;font-size:.75rem}
 .whoami .ff-wrap{white-space:normal}
@@ -73,6 +74,9 @@
 .whoami .ch{display:inline-block;white-space:nowrap}
 .whoami .fk::after{content:":";color:var(--foreground);opacity:.6}
 .whoami .fv{color:var(--accent-2);min-width:0}
+.whoami .fv{flex:1 1 auto;overflow-wrap:anywhere}
+.whoami .ff a{color:inherit;font-weight:700;text-decoration:none;border-bottom:0;background-image:none;box-shadow:none}
+.whoami .ff a:hover,.whoami .ff a:focus-visible{color:var(--accent);text-decoration:none}
 .whoami .ff-colors{gap:0}
 .whoami .ff-colors i{display:inline-block;width:3ch;height:1.1em;background:var(--c);border:1px solid #1e1c26}
 .whoami .cursor{color:var(--accent);animation:blink 1s step-end infinite}
@@ -86,6 +90,7 @@
 .whoami .card-title{color:var(--accent-2);font-weight:bold}
 .whoami .card-desc{font-size:.88rem;opacity:.85}
 @media (max-width:760px){.whoami .ff{flex-direction:column;gap:12px}.whoami .ff-logo,.whoami .ff-info{font-size:.8rem !important}.whoami .fk{width:10ch}.whoami .ff-logo{font-size:.72rem !important}.whoami .ff-info{font-size:.78rem !important}.whoami .ff-colors i{width:2.4ch}.whoami .term-hint{display:none}
+  .whoami .ch{display:inline;white-space:normal}
   .whoami .cards,.whoami .cards.two{grid-template-columns:1fr}.whoami .term-body{padding:14px 14px}.whoami .term-title{font-size:.75rem}}
 </style>
 <script>

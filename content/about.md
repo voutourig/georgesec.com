@@ -30,9 +30,9 @@ Before that I was a SOC Analyst at Spectrum XOps, a multi-client MSSP.
 
 ## competitions
 
-- ECSC 2026, Cyprus national team
-- Cyber Europe 2026
-- CCSC 2026 Top 10
+- European Cyber Security Challenge 2026 (Team Cyprus)
+- Cyber Europe 2026 (Team Cyprus)
+- Cyprus Cyber Security Challenge 2026 (Top 10)
 
 ## certifications
 

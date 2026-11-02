@@ -45,7 +45,7 @@ Findings reported through HackerOne and the NASA VDP.
 
 ## education
 
-- MSc Cybersecurity, Georgia Tech (in progress, 4.0 GPA)
+- MSc Cybersecurity, Georgia Institute of Technology (in progress, 4.0 GPA)
 - BSc Computer Science, First Class, Coventry University
 
 ## tools

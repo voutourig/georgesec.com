@@ -20,8 +20,10 @@
 {{ $site := resources.Get "css-site/site.css" | minify | fingerprint }}<link rel="stylesheet" href="{{ $site.RelPermalink }}">
 
 <link rel="icon" href="{{ "favicon.svg" | relURL }}" type="image/svg+xml">
+<link rel="icon" href="{{ "favicon.ico" | relURL }}" sizes="any">
 <link rel="icon" href="{{ "favicon-32.png" | relURL }}" sizes="32x32" type="image/png">
-<link rel="apple-touch-icon" href="{{ "apple-touch-icon.png" | relURL }}">
+<link rel="icon" href="{{ "favicon-16.png" | relURL }}" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" href="{{ "apple-touch-icon.png" | relURL }}" sizes="180x180">
 
 {{- $img := "og-image.png" | absURL -}}
 {{- with .Params.cover -}}{{- $img = . | absURL -}}{{- with $.Resources.GetMatch . -}}{{- $img = .Permalink -}}{{- end -}}{{- end }}
@@ -47,6 +49,6 @@
 
 {{ if .IsHome }}
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Person","name":"George Voutouris","url":"https://georgesec.com/","email":"mailto:voutourig@proton.me","jobTitle":"Digital Security Engineer","worksFor":{"@type":"Organization","name":"Cyprus National CSIRT"},"alumniOf":[{"@type":"CollegeOrUniversity","name":"Coventry University"}],"sameAs":["https://www.linkedin.com/in/giorgos-voutouri","https://github.com/voutourig"]}
+{"@context":"https://schema.org","@type":"Person","name":"George Voutouris","url":"https://georgesec.com/","email":"mailto:voutourig@proton.me","jobTitle":"Digital Security Engineer","worksFor":{"@type":"Organization","name":"Cyprus National CSIRT"},"alumniOf":[{"@type":"CollegeOrUniversity","name":"Georgia Institute of Technology"},{"@type":"CollegeOrUniversity","name":"Coventry University"}],"sameAs":["https://www.linkedin.com/in/giorgos-voutouri","https://github.com/voutourig"]}
 </script>
 {{ end }}

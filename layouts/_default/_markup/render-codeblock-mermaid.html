@@ -1,0 +1,6 @@
+{{- /* Render hook: turn ```mermaid fenced blocks into <pre class="mermaid">.
+      Sets a per-page flag so the mermaid loader partial only runs where needed. */ -}}
+<pre class="mermaid">
+{{- .Inner | htmlEscape | safeHTML -}}
+</pre>
+{{- .Page.Store.Set "hasMermaid" true -}}

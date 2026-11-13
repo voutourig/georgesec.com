@@ -67,3 +67,123 @@
 .site-tagline .tag-home a::before{content:"$ ";color:var(--accent)}
 .site-tagline .tag-home a:hover{text-decoration:underline;text-underline-offset:4px}
 @media (max-width:684px){.site-tagline{font-size:.85rem}}
+
+/* ---- Article visuals: mermaid, callouts, before/after, tables ---- */
+.post-content pre.mermaid{
+  background:var(--surface);
+  border:1px solid color-mix(in srgb,var(--accent) 45%,transparent);
+  padding:16px 14px;
+  overflow-x:auto;
+  margin:1.2em 0 1.6em;
+  text-align:center;
+  color:var(--foreground);
+  font-family:DejaVu Sans Mono,Menlo,Consolas,monospace;
+  font-size:.85rem;
+  line-height:1.4;
+}
+.post-content pre.mermaid svg{max-width:100%;height:auto}
+
+/* Callouts: {{< callout note|tip|warn|danger "Title" >}}...{{< /callout >}} */
+.callout{
+  border-left:3px solid var(--accent-2);
+  background:color-mix(in srgb,var(--surface) 85%,var(--accent-2));
+  padding:10px 14px;
+  margin:1.2em 0;
+}
+.callout-title{
+  color:var(--accent-2);
+  font-weight:bold;
+  margin:0 0 .35em;
+  font-size:.95rem;
+}
+.callout-title::before{content:"> ";color:var(--accent)}
+.callout-body{margin:0}
+.callout-body > :first-child{margin-top:0}
+.callout-body > :last-child{margin-bottom:0}
+.callout-note{border-left-color:var(--accent-2)}
+.callout-tip{border-left-color:#4ade80;background:color-mix(in srgb,var(--surface) 88%,#4ade80)}
+.callout-tip .callout-title{color:#4ade80}
+.callout-warn{border-left-color:#fbbf24;background:color-mix(in srgb,var(--surface) 88%,#fbbf24)}
+.callout-warn .callout-title{color:#fbbf24}
+.callout-danger{border-left-color:var(--accent);background:color-mix(in srgb,var(--surface) 85%,var(--accent))}
+.callout-danger .callout-title{color:var(--accent)}
+
+/* Before / after panes */
+.before-after{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin:1.2em 0 1.6em;
+}
+.ba-pane{
+  border:1px solid color-mix(in srgb,var(--accent) 40%,transparent);
+  background:var(--surface);
+  min-width:0;
+}
+.ba-label{
+  padding:6px 10px;
+  font-weight:bold;
+  font-size:.85rem;
+  border-bottom:1px dashed color-mix(in srgb,var(--accent) 40%,transparent);
+  color:var(--accent);
+}
+.ba-before .ba-label{color:#fbbf24}
+.ba-after .ba-label{color:#4ade80}
+.ba-body{padding:10px 12px}
+.ba-body > :first-child{margin-top:0}
+.ba-body > :last-child{margin-bottom:0}
+.ba-body pre{margin:0;overflow-x:auto}
+@media (max-width:760px){
+  .before-after{grid-template-columns:1fr}
+}
+
+/* Tables inside articles */
+.post-content table{
+  width:100%;
+  border-collapse:collapse;
+  margin:1.2em 0 1.6em;
+  font-size:.92rem;
+  display:block;
+  overflow-x:auto;
+}
+.post-content th,.post-content td{
+  border:1px solid color-mix(in srgb,var(--accent) 35%,transparent);
+  padding:6px 10px;
+  text-align:left;
+  vertical-align:top;
+}
+.post-content th{
+  background:var(--surface-bar);
+  color:var(--accent);
+  font-weight:bold;
+}
+.post-content tr:nth-child(even) td{background:color-mix(in srgb,var(--surface) 70%,transparent)}
+
+/* Annotated code hint line (blockquote used as a note under a fence) */
+.post-content blockquote{
+  border-left:3px solid var(--accent-2);
+  margin:0.6em 0 1.2em;
+  padding:6px 12px;
+  opacity:.95;
+  background:color-mix(in srgb,var(--surface) 80%,transparent);
+}
+.post-content blockquote p{margin:.2em 0}
+
+/* compare / side shortcodes (batch B alternate before/after API) */
+.compare{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin:1.2em 0 1.6em;
+}
+.side{
+  border:1px solid color-mix(in srgb,var(--accent) 40%,transparent);
+  background:var(--surface);
+  min-width:0;
+  padding:10px 12px;
+}
+.side-label{margin:0 0 .5em;font-weight:bold;font-size:.85rem;color:var(--accent)}
+.side-bad .side-label{color:#fbbf24}
+.side-good .side-label{color:#4ade80}
+.side pre{margin:0;overflow-x:auto}
+@media (max-width:760px){.compare{grid-template-columns:1fr}}

@@ -1,0 +1,15 @@
+{{- /* Usage:
+     {{< beforeafter >}}
+     {{< ba-before >}}
+     ... markdown / code ...
+     {{< /ba-before >}}
+     {{< ba-after >}}
+     ... markdown / code ...
+     {{< /ba-after >}}
+     {{< /beforeafter >}}
+     Nested shortcodes need .Inner, so we use a simpler pair of shortcodes that
+     share a wrapper via the "beforeafter" container and two child slots.
+*/ -}}
+<div class="before-after">
+{{ .Inner }}
+</div>

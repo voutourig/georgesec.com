@@ -1,0 +1,6 @@
+{{- $kind := .Get 0 | default "note" -}}
+{{- $title := .Get 1 | default (title $kind) -}}
+<aside class="callout callout-{{ $kind }}" role="note">
+  <div class="callout-title">{{ $title }}</div>
+  <div class="callout-body">{{ .Inner | markdownify }}</div>
+</aside>

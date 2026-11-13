@@ -1,0 +1,7 @@
+{{- /* Before/after wrapper. Usage:
+      {{< compare >}}
+      {{< side label="Before (vulnerable)" kind="bad" >}} ```code``` {{< /side >}}
+      {{< side label="After (fixed)" kind="good" >}} ```code``` {{< /side >}}
+      {{< /compare >}}
+      Side by side on wide screens, stacked on mobile. */ -}}
+<div class="compare">{{ .Inner }}</div>

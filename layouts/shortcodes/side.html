@@ -1,0 +1,5 @@
+{{- $kind := .Get "kind" | default "neutral" -}}
+<div class="side side-{{ $kind }}">
+  <p class="side-label">{{ .Get "label" }}</p>
+  {{ .Inner | .Page.RenderString (dict "display" "block") }}
+</div>

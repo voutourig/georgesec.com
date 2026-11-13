@@ -1,0 +1,46 @@
+{{- /* Loads Mermaid from a pinned CDN only on pages that used a ```mermaid block.
+      Dark theme tuned to the terminal palette (see assets/css-site/site.css). */ -}}
+{{- if .Page.Store.Get "hasMermaid" -}}
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11.4.1/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    securityLevel: 'strict',
+    fontFamily: 'DejaVu Sans Mono, Menlo, Consolas, monospace',
+    themeVariables: {
+      darkMode: true,
+      background: '#07070b',
+      primaryColor: '#131119',
+      primaryBorderColor: '#ff3346',
+      primaryTextColor: '#d6d6de',
+      secondaryColor: '#101827',
+      secondaryBorderColor: '#22d3ee',
+      tertiaryColor: '#0b0a10',
+      tertiaryBorderColor: '#b366ff',
+      lineColor: '#22d3ee',
+      textColor: '#d6d6de',
+      mainBkg: '#131119',
+      nodeBorder: '#ff3346',
+      clusterBkg: '#0b0a10',
+      clusterBorder: '#b366ff',
+      titleColor: '#ff3346',
+      edgeLabelBackground: '#07070b',
+      actorBkg: '#131119',
+      actorBorder: '#ff3346',
+      actorTextColor: '#d6d6de',
+      signalColor: '#22d3ee',
+      signalTextColor: '#d6d6de',
+      labelBoxBkgColor: '#131119',
+      labelBoxBorderColor: '#22d3ee',
+      labelTextColor: '#d6d6de',
+      loopTextColor: '#d6d6de',
+      noteBkgColor: '#101827',
+      noteBorderColor: '#22d3ee',
+      noteTextColor: '#d6d6de',
+      activationBkgColor: '#1a1622',
+      sequenceNumberColor: '#0b0a10'
+    }
+  });
+</script>
+{{- end -}}

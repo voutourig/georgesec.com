@@ -39,9 +39,10 @@ Before that I was a SOC Analyst at Spectrum XOps, a multi-client MSSP.
 - [PJPT (TCM Security)](https://certified.tcm-sec.com/d8636ff1-60fb-4e14-94a5-20f424c145a9#acc.vwm8aM3g)
 - [BTL1 (Centri)](https://www.credly.com/badges/fcff540d-8cc4-4a68-bfc7-1bd21197399e/public_url)
 
-## bug bounty
+## outside work
 
-Findings reported through HackerOne and the NASA VDP.
+- **Bug bounty:** I hunt for vulnerabilities on platforms like HackerOne and Bugcrowd and report them through each programme's disclosure process.
+- **Homelab:** I run a homelab where I build attack and detection setups, try out new tools and break things safely before I touch anything real.
 
 ## education
 

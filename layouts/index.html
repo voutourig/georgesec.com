@@ -1,5 +1,6 @@
 {{ define "main" }}
 <section class="whoami">
+  <div class="home-left">
   <div class="term">
     <div class="term-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span class="term-title">root@georgesec: ~</span><span class="term-hint">click or press any key to skip</span></div>
     <div class="term-body" id="term-body">
@@ -13,7 +14,9 @@
       <p class="ln last">{{ partial "prompt.html" . }} <span class="cursor">&#9608;</span></p>
     </div>
   </div>
+  </div>
 
+  <div class="home-right">
   {{ $articles := where site.RegularPages "Section" "articles" }}
   <h2 class="sec">## latest articles</h2>
   {{ with first 3 $articles }}
@@ -41,6 +44,7 @@
   {{ else }}
   <p class="empty"><span class="ps">&gt;</span> Coming soon.</p>
   {{ end }}
+  </div>
 </section>
 
 <style>
@@ -92,6 +96,33 @@
 @media (max-width:760px){.whoami .ff{flex-direction:column;gap:12px}.whoami .ff-logo,.whoami .ff-info{font-size:.8rem !important}.whoami .fk{width:10ch}.whoami .ff-logo{font-size:.72rem !important}.whoami .ff-info{font-size:.78rem !important}.whoami .ff-colors i{width:2.4ch}.whoami .term-hint{display:none}
   .whoami .ch{display:inline;white-space:normal}
   .whoami .cards,.whoami .cards.two{grid-template-columns:1fr}.whoami .term-body{padding:14px 14px}.whoami .term-title{font-size:.75rem}}
+
+/* Desktop only: two columns so the intro and the latest work fit on one screen.
+   Left: banner + terminal. Right: latest articles + featured projects. Narrower screens keep the single column. */
+@media (min-width:1200px){
+  .container.home-wide{max-width:1480px;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);
+    grid-template-areas:"head right" "left right" "foot foot";grid-template-rows:auto 1fr auto;column-gap:56px;align-items:start}
+  .container.home-wide > .content,.container.home-wide .whoami{display:contents}
+  .container.home-wide > .site-header{grid-area:head}
+  .container.home-wide .home-left{grid-area:left;min-width:0}
+  .container.home-wide .home-right{grid-area:right;min-width:0;align-self:start;padding-top:4px}
+  .container.home-wide > .footer{grid-area:foot}
+  .container.home-wide .whoami .term{margin-bottom:0}
+  .container.home-wide .home-right > .sec:first-child{margin-top:0}
+  .container.home-wide .whoami .sec{margin-top:26px}
+  .container.home-wide .home-right .cards{grid-template-columns:1fr;gap:12px}
+  .container.home-wide .home-right .cards.two{grid-template-columns:repeat(2,1fr)}
+  .container.home-wide .home-right .card{padding:12px 14px;gap:6px}
+  /* keep the right column short: descriptions are clamped here, the full text is on each page */
+  .container.home-wide .home-right .card-desc{display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;overflow:hidden}
+  /* fastfetch: let long honor lines wrap inside the narrower column instead of spilling out */
+  .container.home-wide .whoami .ch{display:inline;white-space:normal}
+  .container.home-wide .whoami .fv{text-wrap:balance}
+  .container.home-wide .whoami .ff-info{font-size:.8rem}
+  .container.home-wide .whoami .ff-logo{font-size:.82rem !important}
+  .container.home-wide .whoami .ff{gap:18px}
+}
+@media (min-width:1800px){.container.home-wide{max-width:1660px}.container.home-wide .whoami .ff-info{font-size:.9rem}.container.home-wide .whoami .ff-logo{font-size:.92rem !important}.container.home-wide .whoami .ff{gap:24px}.container.home-wide .whoami .ch{display:inline-block;white-space:nowrap}}
 </style>
 <script>
 (function(){
